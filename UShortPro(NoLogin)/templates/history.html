@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}History - URL Shortener{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">URL History</h1>
+{% if urls %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for url in urls %}
+        <tr>
+            <td><a href="{{ url.original_url }}" target="_blank">{{ url.original_url }}</a></td>
+            <td><a href="{{ url_for('redirect_to_url', short_code=url.short_code, _external=True) }}">{{ url_for('redirect_to_url', short_code=url.short_code, _external=True) }}</a></td>
+            <td>{{ url.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="text-center">No URLs shortened yet.</p>
+{% endif %}
+{% endblock %}

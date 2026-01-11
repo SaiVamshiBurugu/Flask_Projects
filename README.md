@@ -36,6 +36,18 @@ A basic Flask application that provides personalized greetings.
   - Greets users with "Hello Anonymous User!" by default
   - Provides personalized greeting if `username` query parameter is provided (e.g., `/?username=John`)
 
+### URL Shortener
+A simple Flask-based URL shortener application.
+
+- **Location**: `UShortPro(NoLogin)/`
+- **Main file**: `app.py`
+- **Templates**: `templates/index.html`, `templates/layout.html`, `templates/history.html`
+- **Features**: 
+  - Shorten long URLs to short codes
+  - Store and view history of shortened URLs
+  - Validate URLs before shortening
+  - Responsive UI with Bootstrap
+
 ## Setup and Running
 
 Each project is a standalone Flask application. To run any of them:
@@ -63,7 +75,19 @@ Flask_projects/
 │   └── templates/
 │       ├── index.html
 │       └── index_improved.html
-└── Task_1/
+├── Task_1/
+│   ├── app.py
+│   └── templates/
+└── UShortPro(NoLogin)/
     ├── app.py
-    └── templates/
+    ├── problem_statement.md
+    ├── README.md
+    ├── requirements.txt
+    ├── templates/
+    │   ├── history.html
+    │   ├── index.html
+    │   └── layout.html
+    └── ref/
+        ├── app_7/
+        └── app_7 (signin)/
 ```
