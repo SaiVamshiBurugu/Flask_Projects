@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Matcher</title>
+</head>
+<body>
+    <h1>Regex Matcher</h1>
+    <form method="POST">
+        <label for="test_string">Test String:</label><br>
+        <textarea name="test_string" id="test_string" rows="4" cols="50" required></textarea><br><br>
+        <label for="regex">Regular Expression:</label><br>
+        <input type="text" name="regex" id="regex" size="50" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if matches %}
+    <h2>Matches:</h2>
+    <ul>
+        {% for match in matches %}
+        <li>{{ match }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if error %}
+    <h2>Error:</h2>
+    <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html></content>
