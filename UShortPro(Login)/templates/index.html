@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - UShortPro (Your Ultimate URL Shortener){% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="text-center mb-4">Shorten Your URL</h1>
+        <form method="POST" action="{{ url_for('index') }}">
+            <div class="mb-3">
+                <label for="url" class="form-label">Enter URL to shorten:</label>
+                <input type="url" class="form-control" id="url" name="url" placeholder="https://example.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Shorten URL</button>
+        </form>
+
+        {% if shortened_url %}
+        <div class="mt-4 p-3 bg-light rounded">
+            <h5>Shortened URL:</h5>
+            <div class="input-group">
+                <input type="text" class="form-control" id="shortUrl" value="{{ shortened_url }}" readonly>
+                <button onclick="copyToClipboard()" class="btn btn-outline-secondary" type="button">Copy</button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function copyToClipboard() {
+        const urlInput = document.getElementById('shortUrl');
+        urlInput.select();
+        urlInput.setSelectionRange(0, 99999); // For mobile
+        try {
+            document.execCommand('copy');
+            alert('URL copied to clipboard!');
+        } catch (err) {
+            alert('Copy failed. Please copy manually.');
+        }
+    }
+</script>
+{% endblock %}
